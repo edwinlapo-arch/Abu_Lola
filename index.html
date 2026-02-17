@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Cumpleaños Abuelita</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(to bottom,#ffdde1,#ee9ca7);
+    overflow:hidden;
+    text-align:center;
+    color:white;
+}
+
+.container{
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    animation:fadeIn 3s ease-in-out;
+}
+
+h1{
+    font-size:50px;
+    animation:glow 2s infinite alternate;
+}
+
+p{
+    width:70%;
+    margin:auto;
+    font-size:20px;
+    line-height:1.6;
+}
+
+img{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    margin-top:20px;
+    border:5px solid white;
+    box-shadow:0 0 20px white;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    background:white;
+    color:#ee9ca7;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff6f91;
+    color:white;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes glow{
+    from{text-shadow:0 0 10px white;}
+    to{text-shadow:0 0 20px #fff,0 0 30px #ff6f91;}
+}
+
+.heart{
+    position:absolute;
+    bottom:-10px;
+    font-size:20px;
+    animation:floatUp 5s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-800px);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+    <source src="Hnas Mendoza Suasti Palomita Cuculi.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+<h1>🌸 Feliz Cumpleaños Abuelita 🌸</h1>
+<h2>Hoy celebramos tu vida en el cielo</h2>
+
+<img src="Abuelita.jpg" alt="Mi Abuelita">
+
+<p>
+Abuelita querida, hoy el cielo está de fiesta porque es tu cumpleaños.
+Aunque ya no pueda abrazarte ni escuchar tu voz, siento tu presencia en cada recuerdo.
+Gracias por tu amor infinito y por enseñarme lo que significa la familia.
+Feliz cumpleaños, mi angelito hermoso. 👼✨
+ 
+Te amo hoy y siempre. 💖
+</p>
+
+<button onclick="mostrarMensaje()">Mensaje especial</button>
+<button onclick="reproducirMusica()">Reproducir Música 🎵</button>
+
+<p id="mensajeExtra" style="display:none; font-size:22px;">
+Te amamos por siempre abuelita hermosa ✨👼
+</p>
+</div>
+
+<script>
+function mostrarMensaje(){
+document.getElementById("mensajeExtra").style.display="block";
+}
+
+function reproducirMusica(){
+document.getElementById("musica").play();
+}
+
+function crearCorazon(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*20+15+"px";
+heart.style.animationDuration=Math.random()*3+2+"s";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},5000);
+}
+
+setInterval(crearCorazon,500);
+</script>
+
+</body>
+</html>
